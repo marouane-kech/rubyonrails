@@ -32,7 +32,7 @@
       <td><%= link_to 'Afficher', article_path(article) %></td>
       <td><%= link_to 'Editer', edit_article_path(article) %></td>
       <td><%= link_to 'Supprimer', article_path(article),
-        method: :delete,
+        method: :DELETE,
         data: { confirm: 'Etes-vous sûr de vouloir supprimer cette article ?' } %>
       </td>
     </tr>
