@@ -1,11 +1,12 @@
-<h1>Liste des articles</h1>
+
+<br /><br />
+<%= link_to 'créer un nouvel article', new_article_path, class:"btn btn-primary" %>
 <br />
 <div class="row">
   <div class="col-lg-6">
-    <%= link_to 'créer un nouvel article', new_article_path, class:"btn btn-primary" %>
+    <h1>Liste des articles</h1>
   </div>
 </div>
-<br /><br />
 <div class="row">
   <div class="col-lg-6">
   </div>
@@ -26,14 +27,14 @@
   <tbody>
     <% @articles.each do |article| %>
     <tr>
-      <td><%= article.title %></td>
-      <td><%= truncate(article.content, length: 20) %></td>
+      <td><%= article.titre %></td>
+      <td><%= truncate(article.contenu, length: 20) %></td>
       <td><%= article.tags.map { |f| f.content }.join ', ' %></td>
       <td><%= link_to 'Afficher', article_path(article) %></td>
       <td><%= link_to 'Editer', edit_article_path(article) %></td>
       <td><%= link_to 'Supprimer', article_path(article),
         method: :DELETE,
-        data: { confirm: 'Etes-vous sûr de vouloir supprimer cette article ?' } %>
+        data: { confirm: 'Etes-vous sûr de vouloir supprimer cet article ?' } %>
       </td>
     </tr>
     <% end %>

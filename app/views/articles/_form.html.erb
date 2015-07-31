@@ -1,10 +1,8 @@
 <%= form_for @article do |f| %>
  
   <% if @article.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@article.errors.count, "erreur") %> empêche cet article d'être enregistré:
-      </h2>
+    <div id="error_explanation" class="text-danger">
+      <h4><%= pluralize(@article.errors.count, "erreur empêche", "erreurs empêchent") %> cet article d'être enregistré:<h4>
       <ul>
         <% @article.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -14,13 +12,13 @@
   <% end %>
  
   <p>
-    <label for="title" />Titre</label><br>
-    <%= f.text_field :title, class: "form-control"%>
+    <label for="titre" />Titre</label><br>
+    <%= f.text_field :titre, class: "form-control"%>
   </p>
  
   <p>
-    <label for="content" />Contenu</label><br>
-    <%= f.text_area :content, class: "form-control" %>
+    <label for="contenu" />Contenu</label><br>
+    <%= f.text_area :contenu, class: "form-control" %>
   </p>
  
   <p>
