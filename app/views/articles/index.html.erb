@@ -1,0 +1,41 @@
+<h1>Liste des articles</h1>
+<br />
+<div class="row">
+  <div class="col-lg-6">
+    <%= link_to 'créer un nouvel article', new_article_path, class:"btn btn-primary" %>
+  </div>
+</div>
+<br /><br />
+<div class="row">
+  <div class="col-lg-6">
+  </div>
+  <div class="col-lg-6">
+    <%= render 'search' %>
+  </div>
+</div>
+<br />
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Titre</th>
+      <th>Contenu</th>
+      <th>Tags</th>
+      <th colspan="3">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= truncate(article.content, length: 20) %></td>
+      <td><%= article.tags.map { |f| f.content }.join ', ' %></td>
+      <td><%= link_to 'Afficher', article_path(article) %></td>
+      <td><%= link_to 'Editer', edit_article_path(article) %></td>
+      <td><%= link_to 'Supprimer', article_path(article),
+        method: :delete,
+        data: { confirm: 'Etes-vous sûr de vouloir supprimer cette article ?' } %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

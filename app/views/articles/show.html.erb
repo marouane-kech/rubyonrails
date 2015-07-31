@@ -1,0 +1,28 @@
+<br /><br />
+<div class="row">
+	<div class="col-lg-8">
+		<div class="panel panel-primary">
+		  <div class="panel-heading"><%= @article.title %></div>
+		  <div class="panel-body" style="min-height:200px;"><%= @article.content %></div>
+		</div>
+		
+		<%= link_to 'Editer', edit_article_path(@article) %> |
+		<%= link_to 'Retour', articles_path %>
+	</div>
+
+	<div class="col-lg-4">
+	 	<div class="panel panel-success">
+		  <div class="panel-heading">Tags</div>
+		  <div class="panel-body" style="min-height:200px;">
+			  <div class = "row">
+			  	<%= render @article.tags %>
+			  </div>
+			  <br /><br />
+			  <div class = "row">
+				<%= render 'tags/form' %>
+			  </div>
+		  </div>
+		</div>
+	</div>
+
+</div>
