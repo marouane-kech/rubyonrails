@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  has_many :tags
+  has_many :tags, :dependent => :delete_all
   validates :title, presence: true,
                     length: { minimum: 5 }
   validates :content, presence: true,
